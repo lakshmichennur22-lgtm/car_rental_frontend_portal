@@ -1,4 +1,4 @@
- pipeline {
+pipeline {
     agent any
 
     stages {
@@ -11,17 +11,13 @@
 
         stage('Install Dependencies') {
             steps {
-                sh '''
-                    npm install
-                '''
+                sh 'npm install'
             }
         }
 
         stage('Build Vite App') {
             steps {
-                sh '''
-                    npm run build
-                '''
+                sh 'npm run build'
             }
         }
 
@@ -34,7 +30,12 @@
 
     post {
         success {
-            build job: 'car-rental-frontend-CI'
+            echo '✅ Frontend CI build successful'
+            // Uncomment ONLY if job exists
+            // build job: 'car-rental-frontend-CI'
+        }
+        failure {
+            echo '❌ Frontend CI build failed'
         }
     }
 }
