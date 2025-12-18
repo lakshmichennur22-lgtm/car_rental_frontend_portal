@@ -30,12 +30,8 @@ pipeline {
 
     post {
         success {
-            echo '✅ Frontend CI build successful'
-            // Uncomment ONLY if job exists
-            // build job: 'car-rental-frontend-CI'
-        }
-        failure {
-            echo '❌ Frontend CI build failed'
+            build job: 'car-rental-frontend-CI
+'
         }
     }
 }
