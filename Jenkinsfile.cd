@@ -11,7 +11,7 @@ pipeline {
         stage('Download Build Artifacts') {
             steps {
                 copyArtifacts(
-                    projectName: 'car-rental-frontend-CD',
+                    projectName: 'car-rental-frontend-CI',
                     selector: lastSuccessful()
                 )
             }
